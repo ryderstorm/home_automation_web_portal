@@ -1,5 +1,6 @@
 Given(/^I am on the homepage$/) do
-  @browser.goto @url
+  expect(@browser.goto(@url)).to eq @url
+  expect(@browser.title).to eq 'STORMHOLD'
 end
 
 Then(/^the title should include Stormhold$/) do
