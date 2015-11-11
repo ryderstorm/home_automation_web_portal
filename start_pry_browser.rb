@@ -16,8 +16,8 @@ puts 'Creating browser instance'
 browser = Watir::Browser.new :firefox
 @browser = browser
 
-puts "Browser created successfully!"
-binding.pry
+puts 'Browser created successfully!'
+binding.pry # rubocop:disable all
 
-puts "Closing browser..."
+puts 'Closing browser...'
 browser.close
