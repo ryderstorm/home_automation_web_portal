@@ -12,6 +12,7 @@ if Socket.gethostname == 'Alfred'
   $lights = $hue.lights
   set :port, 8000
   set :bind, '0.0.0.0'
+# TODO: add dummy light objects for testing/build out
 end
 
 sass_filename = 'public/css/styles.sass'
