@@ -1,6 +1,9 @@
 require 'socket'
+require 'colorize'
 require 'watir-webdriver'
 require 'rspec/expectations'
+require 'require_all'
+require_rel '../../helpers/server_controls'
 # require 'pry'
 
 case
@@ -11,7 +14,7 @@ when !ENV['C9_HOSTNAME'].nil?
   Kernel.puts 'Starting headless...'
   headless = Headless.new
   headless.start
-  load 'start_web_server.rb'
+  start_test_web_server
 when Socket.gethostname == 'Alfred'
   Kernel.puts 'Running tests on Alfred'
   url = 'http://192.168.1.10:8000'
@@ -19,10 +22,10 @@ when Socket.gethostname == 'Alfred'
 else
   Kernel.puts 'Running tests on local host'
   url = 'http://localhost:4567'
-  load 'start_web_server.rb'
+  start_test_web_server
 end
-
 Kernel.puts 'Starting browser...'
+Kernel.puts "Using url: #{url.yellow}"
 browser = Watir::Browser.new :firefox
 
 Before do
@@ -31,7 +34,9 @@ Before do
 end
 
 at_exit do
+  browser.goto(url + '/terminate') unless ENV['ALFRED']
   browser.close
   headless.destroy unless headless.nil?
-  load 'stop_web_server.rb' unless ENV['ALFRED']
+  # load 'stop_web_server.rb' unless ENV['ALFRED']
+  # @server.kill unless ENV['ALFRED']
 end

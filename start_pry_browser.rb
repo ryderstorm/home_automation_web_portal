@@ -8,9 +8,11 @@ def take_screenshot(text = 'screenshot')
   @browser.screenshot.save "./screenshots/#{text}_#{time}.png"
 end
 
-puts 'Creating headless instance'
-headless = Headless.new
-headless.start
+unless ENV['C9_HOSTNAME'].nil?
+	puts 'Creating headless instance'
+	headless = Headless.new
+	headless.start
+end
 
 puts 'Creating browser instance'
 browser = Watir::Browser.new :firefox
