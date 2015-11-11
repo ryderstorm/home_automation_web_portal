@@ -1,0 +1,120 @@
+// $color1: #607b7d
+// $color2: #c5f8e8
+// $color3: #cdd5d1
+// $color4: #3e2f5b
+// $color5: #d5a6ab
+$color1: #f1f0f5
+$color2: #e8e8eb
+$color3: #d0d0d4
+$color4: #25558f
+$color5: #233c61
+$color6: #ebdace
+$borderradius: 20px
+$font: Verdana
+
+.c1
+	background-color: $color1
+.c2
+	background-color: $color2
+.c3
+	background-color: $color3
+.c4
+	background-color: $color4
+.c5
+	background-color: $color5
+.c6
+	background-color: $color6
+
+@mixin border-radius($radius)
+	-webkit-border-radius: $radius
+	-moz-border-radius: $radius
+	-ms-border-radius: $radius
+	border-radius: $radius
+
+#wrapper
+	width: 1024px
+	margin: auto
+
+#header
+	@include border-radius($borderradius)
+	padding: 8px 8px 8px 8px
+	background-color: $color5
+	color: $color1
+	text-align: center
+	font-family: $font
+
+#header>h1
+	font-size: 200%
+
+h2
+	font-size: 130%
+
+#content
+	@include border-radius($borderradius)
+	padding: 8px 8px 8px 8px
+	float: left
+	// border-style: solid
+	background-color: $color6
+	margin: 10px
+	min-height: 200px
+	font-family: $font
+
+#side_bar
+	@include border-radius($borderradius)
+	padding: 8px 8px 8px 8px
+	margin: 12px 0
+	width: 20%
+	float: left
+	clear: none
+	color: $color1
+	background-color: $color4
+	min-height: 200px
+	font-family: $font
+
+h1
+	font-size: 150%
+#footer
+	clear: both
+	background-color: $color5
+	color: $color1
+	font-size: 75%
+	font-family: sans-serif
+	border-top: solid 1px #69a
+	@include border-radius($borderradius)
+	padding: 8px 8px 8px 8px
+	font-family: $font
+
+ol
+	padding-top: 20px
+	//background-color: #ade
+	display: block
+
+li
+	color: white
+	text-align: left
+	/*display: inline*/
+	padding: 5px 10px 0 10px
+	/*margin-left: 4px*/
+	/*margin-right: 10px*/
+	//background-color: #69a
+
+a
+	text-decoration: none
+	color: DarkGray
+
+a:visited
+	background-color: $color3
+
+#test
+	// color: black
+	border: solid 1px black
+	// background-color: black
+
+.makered
+	color: red
+
+.makeblue
+	color: blue
+
+.reset
+	color: black

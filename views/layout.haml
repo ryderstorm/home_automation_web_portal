@@ -1,0 +1,59 @@
+!!!
+%html
+	%head
+		%title STORMHOLD
+		%link(rel="stylesheet" href="http://yui.yahooapis.com/2.8.0r4/build/reset/reset-min.css")
+		%link(rel="stylesheet" href="css/styles.css")
+	%body
+		#wrapper
+			#header
+				%h1 STORMHOLD
+				%h2 Welcome to the Storm Family home!
+
+			#side_bar
+				%h1 Navigation
+				%p
+					Please choose an option:
+					%ul
+						%li
+							= link_to '/lights', 'Control the lights'
+						%li
+							= link_to '/nest', 'Adjust the temperature'
+						%li
+							= link_to '/cams', 'View webcams'
+						%li Listen to local NPR
+						%li Check the weather outside
+
+			#content
+				=yield
+
+			#footer
+				%p
+					Please contact
+					%a{href:'mailto:damien.r.storm@gmail.com'} Damien
+					with any questions or suggestions.
+
+			#colors
+				%hr
+				%p
+					%table
+						%tr
+							%td Color1
+							%td.c1 ------
+						%tr
+							%td Color2
+							%td.c2 ------
+						%tr
+							%td Color3
+							%td.c3 ------
+						%tr
+							%td Color4
+							%td.c4 ------
+						%tr
+							%td Color5
+							%td.c5 ------
+						%tr
+							%td Color6
+							%td.c6 ------
+		%script{src:"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+		%script{src:"javascript/app.js"}

@@ -1,0 +1,54 @@
+!!! XML
+!!! Strict
+%html{"xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %link{:href => "css/bootstrap.css", :rel => "stylesheet", :type => "text/css"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      /
+        Use or delete this as needed
+        <link rel="apple-touch-icon" href="ios.png" />
+      %script{:language => "JavaScript", :src => "hue.js"}
+      %title Hue Control Center
+  %body
+    .container
+      .grouplefttop
+        %p
+          %h1 Main Functions
+        %p
+          %a.btn.btn-lg.btn-primary{:onclick => "lightswitch(1,true);lightswitch(2,true);lightswitch(3,true);"} All lights on
+          %a.btn.btn-lg.btn-primary{:onclick => "lightswitch(1,false);lightswitch(2,false);lightswitch(3,false);"} All lights off
+        %p
+          %a.btn.btn-lg.btn-primary{:onclick => "latemorning(1,255);latemorning(2,255);latemorning(3,255);"} Brightest Light
+          %a.btn.btn-lg.btn-primary{:onclick => "latemorning(1,160);latemorning(2,160);latemorning(3,160);"} Mid Light
+        %p
+          %a.btn.btn-lg.btn-primary{:onclick => "earlymorning(1,70);earlymorning(2,70);earlymorning(3,70);"} Low Light
+          %a.btn.btn-lg.btn-primary{:onclick => "night(1,20);night(2,20);night(3,20);"} Night Light
+        %p
+          %a.btn.btn-lg.btn-primary{:onclick => "lightswitch(1,true);lightswitch(3,true);"} Living Room On
+          %a.btn.btn-lg.btn-primary{:onclick => "lightswitch(1,false);lightswitch(3,false);"} Living Room Off
+        %p
+          %a.btn.btn-lg.btn-primary{:onclick => "lightswitch(2,true);earlymorning(2,144);"} Bedroom On
+          %a.btn.btn-lg.btn-primary{:onclick => "lightswitch(2,false);"} Bedroom Off
+      .grouprighttop
+        %p
+          %h1 Moods
+        %p
+          %a.btn.btn-lg.btn-primary{:onclick => "earlymorning(1,144);earlymorning(2,144);earlymorning(3,144);"} Morning
+          %a.btn.btn-lg.btn-primary{:onclick => "quittintime(1,180);quittintime(2,180);quittintime(3,180);"} Evening
+          %a.btn.btn-lg.btn-primary{:onclick => "latemorning(1,255);latemorning(2,255);latemorning(3,255);"} Day
+          %a.btn.btn-lg.btn-primary{:onclick => "night(1,255);night(2,255);night(3,255);"} Night
+      .groupright
+        %p
+          %h1 Intensity
+        %p
+          %input#light1textbox.form-control{:pattern => "^([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$", :placeholder => "0-255", :title => "Enter a number between 0-255", :type => "text"}/
+          %a.btn.btn-lg.btn-primary{:onclick => "lightbright(1,(document.getElementById('light1textbox').value));lightbright(3,(document.getElementById('light1textbox').value));"} Living Room Level
+        %p
+          %input#light2textbox.form-control{:pattern => "^([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$", :placeholder => "0-255", :title => "Enter a number between 0-255", :type => "text"}/
+          %a.btn.btn-lg.btn-primary{:onclick => "lightbright(2,(document.getElementById('light2textbox').value));"} Bedroom Level
+      .groupright
+        %p
+          %h1 Effects
+        %p
+          %a.btn.btn-lg.btn-primary{:onclick => "flashit(1,'lselect');flashit(2,'lselect');flashit(3,'lselect');"} Start flashing
+          %a.btn.btn-lg.btn-primary{:onclick => "flashit(1,'none');flashit(2,'none');flashit(3,'none');"} Stop flashing

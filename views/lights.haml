@@ -1,0 +1,25 @@
+#content
+	%h1 Lighting Control
+	%p
+		Current status:
+		- $hue.bridge.refresh
+		- lights = $hue.lights
+		- lights.each do |l|
+			- l.refresh
+			- if l.on?
+				- text = 'off'
+				- status = 'currently on'
+			- else
+				- text = 'on'
+				- status = 'currently off'
+			- info = [l.id.to_s.yellow, l.name.ljust(25, ' ').blue, status.include?('on') ? status.green : status.red, link_to("/#{text}/#{l.id}", "Turn #{text}").yellow]
+			- puts info.join(' | ')
+			%p= info.join(' | ').uncolorize
+	%hr
+	%p= link_to("/lights/all_full", "Turn all lights on, full brightness")
+	%hr
+	%p= link_to("/lights/all_half", "Turn all lights on, half brigtness")
+	%hr
+	%p= link_to("/lights/all_dim", "Turn all lights on, dim")
+	%hr
+	%p= link_to("/lights/all_off", "Turn all lights off")

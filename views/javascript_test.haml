@@ -1,0 +1,29 @@
+%h1 Lighting Control
+%p
+	Current status:
+	- $lights.each do |l|
+		- if l.on?
+			- text = 'off'
+			- status = 'currently on'
+		- else
+			- text = 'on'
+			- status = 'currently off'
+		%p= "#{l.id} | #{l.name.ljust(25, ' ')} | #{status} | " + link_to("/#{text}/#{l.id}", "Turn #{text}")
+%hr
+%p= link_to("/lights/all_full", "Turn all lights on, full brightness")
+%hr
+%p= link_to("/lights/all_off", "Turn all lights off")
+%hr
+%hr
+%p#test
+	Normal.
+%hr
+%p
+	%ul
+		%li.makeblue.blue
+			Make it blue
+		%li.makered.red
+			Make it red
+		%li.reset
+			Reset.
+%hr			
