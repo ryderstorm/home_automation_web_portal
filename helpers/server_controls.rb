@@ -2,7 +2,7 @@ require 'colorize'
 
 def start_test_web_server
 	command = ''
-	if ENV['OS'].include?('Windows')
+	if !ENV['OS'].nil? && ENV['OS'].include?('Windows')
 		command << 'start '
 	else
 		command << 'screen -d -m -S test_web_server '
