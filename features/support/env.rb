@@ -9,7 +9,8 @@ require_rel '../../helpers/server_controls'
 case
 when !ENV['C9_HOSTNAME'].nil?
   Kernel.puts 'Running tests on Cloud9'
-  url = 'https://home-automation-web-portal-ryderstorm.c9users.io/?_c9_id=livepreview6&_c9_host=https://ide.c9.io'
+  # url = 'https://home-automation-web-portal-ryderstorm.c9users.io/?_c9_id=livepreview6&_c9_host=https://ide.c9.io'
+  url = 'https://home-automation-web-portal-ryderstorm.c9users.io'
   require 'headless'
   Kernel.puts 'Starting headless...'
   headless = Headless.new
