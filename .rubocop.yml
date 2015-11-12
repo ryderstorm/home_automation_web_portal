@@ -1,0 +1,3 @@
+# Allow methods longer than 100 lines of code
+MethodLength:
+  Max: 15
