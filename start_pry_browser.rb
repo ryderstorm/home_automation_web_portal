@@ -9,9 +9,9 @@ def take_screenshot(text = 'screenshot')
 end
 
 unless ENV['C9_HOSTNAME'].nil?
-	puts 'Creating headless instance'
-	headless = Headless.new
-	headless.start
+  puts 'Creating headless instance'
+  headless = Headless.new
+  headless.start
 end
 
 puts 'Creating browser instance'
