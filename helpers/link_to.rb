@@ -13,8 +13,10 @@ helpers do
   # in the right direction.
 
   def default_port?
-    return true if request.scheme == 'http' && request.port == 80
-    return true if request.scheme == 'https' && request.port == 443
+    port = request.port
+    scheme = request.scheme
+    return true if scheme == 'http' && port == 80
+    return true if scheme == 'https' && port == 443
     false
   end
 
