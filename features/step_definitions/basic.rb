@@ -4,9 +4,14 @@ Given(/^I am on the homepage$/) do
 end
 
 Then(/^the header should be (.*)$/) do |header|
-  expect(@browser.h1.text).to eq header
+  expect(@browser.div(id: 'header').h1.text).to eq header
 end
 
-And(/^the sub\-header should be (.*)$/) do |sub_header|
-  expect(@browser.h2.text).to eq sub_header
+Then(/^the sub\-header should be (.*)$/) do |sub_header|
+  expect(@browser.div(id: 'header').h2.text).to eq sub_header
+end
+
+Then(/^the Nav List should include (.*)$/) do |list_item|
+  all_items = @browser.div(id: 'side_bar').ul.lis.collect(&:text).to_s
+  expect(all_items).to include(list_item)
 end
