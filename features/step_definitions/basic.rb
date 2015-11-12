@@ -3,10 +3,10 @@ Given(/^I am on the homepage$/) do
   expect(@browser.title).to eq 'STORMHOLD'
 end
 
-Then(/^the title should include Stormhold$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^the header should be (.*)$/) do |header|
+  expect(@browser.h1.text).to eq header
 end
 
-And(/^the sub\-title should include Welcome to the Storm Family Home$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+And(/^the sub\-header should be (.*)$/) do |sub_header|
+  expect(@browser.h2.text).to eq sub_header
 end
